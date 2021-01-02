@@ -14,7 +14,7 @@ let auth;
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
   // Authorize a client with credentials, then call the Gmail API.
-  authorize(JSON.parse(content), listMessages)
+  authorize(JSON.parse(content), listLabels)
 });
 
 /**
@@ -72,7 +72,7 @@ function getNewToken(oAuth2Client, callback) {
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-/*function listLabels(auth) {
+function listLabels(auth) {
   const gmail = google.gmail({version: 'v1', auth});
   gmail.users.labels.list({
     userId: 'me',
@@ -89,7 +89,7 @@ function getNewToken(oAuth2Client, callback) {
     }
   });
 }
-*/
+
 const listMessages = (searchTerm) => {
  
   return new Promise((accept, reject) => google.gmail({ "version": "v1", auth }).users.messages.list({ "userId": "me", "q": searchTerm }, 

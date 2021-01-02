@@ -1,3 +1,3 @@
 
-const { listMessages} = require("./index.js");
+const { listMessages} = require("./readGmail/index.js");
 
