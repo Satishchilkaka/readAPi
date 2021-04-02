@@ -6,13 +6,9 @@ let userName = 'as1'
                 retries: {
                     "runMode": 1, "openMode": 1
                 }
-
             }, async () => {
-
-              
+            
                     const emails = await cy.task("getEmails", userName).then(emails => {
-
-
                         cy.wrap(emails).then((emails) => {
 
                             emails.filter(email => email.urls.filter(url => url.includes("autoserve1.com").length < 0))[0];
@@ -28,8 +24,6 @@ let userName = 'as1'
                         let result = $("<div/>").html(content).text()
                         console.log("res", result)
                         cy.visit(reg[0].body) */
-                    })
-
-                
+                    })                
             });
         })
